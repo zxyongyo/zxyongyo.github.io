@@ -55,7 +55,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
 
 # Math (数学)
 # --------------------------------------
@@ -176,7 +176,7 @@ index_post_content:
 toc:
   enable: true
   number: true
-  style_simple: false
+  style_simple: true
 
 post_copyright:
   enable: true
@@ -203,9 +203,9 @@ post_edit:
   # For example: https://github.com/jerryc127/butterfly.js.org/edit/main/source/
   url:
 
-# Related Articles
+# Related Articles (相关推荐)
 related_post:
-  enable: true
+  enable: false
   limit: 6 # Number of posts displayed
   date_type: created # or created or updated 文章日期显示创建日或者更新日
 
@@ -480,26 +480,26 @@ yandex_site_verification:
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 
-# theme_color:
-#   enable: true
-#   main: "#49B1F5"
-#   paginator: "#00c4b6"
-#   button_hover: "#FF7242"
-#   text_selection: "#00c4b6"
-#   link_color: "#99a9bf"
-#   meta_color: "#858585"
-#   hr_color: "#A4D8FA"
-#   code_foreground: "#F47466"
-#   code_background: "rgba(27, 31, 35, .05)"
-#   toc_color: "#00c4b6"
-#   blockquote_padding_color: "#49b1f5"
-#   blockquote_background_color: "#49b1f5"
+theme_color:
+  enable: true
+  main: "#49B1F5" # 主色
+  paginator: "#49B1F5" # "#00c4b6"  页码颜色
+  button_hover: "#FF7242"
+  text_selection: "#00c4b6"
+  link_color: "#99a9bf"
+  meta_color: "#858585"
+  hr_color: "#A4D8FA"
+  code_foreground: "#F47466"
+  code_background: "rgba(27, 31, 35, .05)"
+  toc_color: "#00c4b6"
+  blockquote_padding_color: "#49b1f5"
+  blockquote_background_color: "#49b1f5"
 
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
-# The position of site info, eg: 300px/300em/300rem/10% (主頁標題距離頂部距離)
-index_site_info_top:
-# The height of top_img, eg: 300px/300em/300rem (主頁top_img高度)
+# The position of site info, eg: 300px/300em/300rem/10% (主页标题距离顶部距离)
+index_site_info_top: 40%
+# The height of top_img, eg: 300px/300em/300rem (主页top_img高度)
 index_top_img_height:
 
 # The user interface setting of category and tag page (category和tag頁的UI設置)
@@ -514,7 +514,7 @@ tag_ui: # 留空或 index
 background:
 
 # Footer Background
-footer_bg: false
+footer_bg: true
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:
@@ -586,7 +586,7 @@ display_mode: light
 
 # Beautify (美化頁面顯示)
 beautify:
-  enable: false
+  enable: true
   field: post # site/post
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
@@ -630,7 +630,7 @@ subtitle:
   # 如果有英文雙引號' " ',請使用轉義字元 &quot;
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
-  sub: "You never thought <br/> you'd be much good for anyone"
+  sub: ["You never thought <br/> you'd be much good for anyone"]
 
 # Loading Animation (加载动画)
 preloader: false
@@ -643,18 +643,18 @@ aside:
   hide: false
   button: true
   mobile: true # display on mobile
-  position: right # left or right
+  position: left # left or right
   card_author:
     enable: true
     description:
-    button:
+    button: # 修改 themes\butterfly\layout\includes\widget\card_author.pug
       enable: true
-      icon: fab fa-gitee
-      text: Follow Me
-      link: https://gitee.com/zxyong
+      icon: fab fa-bookmark
+      text: 加入书签
+      link: 
   card_announcement:
     enable: true
-    content: 来了，老弟
+    content: 欢迎来到我的博客
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
@@ -668,7 +668,7 @@ aside:
   card_tags:
     enable: true
     limit: 40 # if set 0 will show all
-    color: false
+    color: true
     sort_order: # Don't modify the setting unless you know how it works
   card_archives:
     enable: true
@@ -721,7 +721,7 @@ newest_comments:
 # Change font size
 change_font_size: false
 
-# Conversion between Traditional and Simplified Chinese (簡繁轉換)
+# Conversion between Traditional and Simplified Chinese (简繁转换)
 translate:
   enable: false
   # The text of a button
@@ -814,9 +814,9 @@ aplayerInject:
 # position 彈窗位置
 # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
 snackbar:
-  enable: false
-  position: bottom-left
-  bg_light: '#49b1f5' # The background color of Toast Notification in light mode
+  enable: true
+  position: top-center
+  bg_light: '#00c4b6' # The background color of Toast Notification in light mode
   bg_dark: '#121212' # The background color of Toast Notification in dark mode
 
 # https://instant.page/
