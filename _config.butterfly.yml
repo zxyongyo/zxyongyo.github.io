@@ -630,7 +630,7 @@ subtitle:
   # 如果有英文雙引號' " ',請使用轉義字元 &quot;
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
-  sub: ["You never thought <br/> you'd be much good for anyone"]
+  sub: "You never thought <br/> you'd be much good for anyone"
 
 # Loading Animation (加载动画)
 preloader: false
