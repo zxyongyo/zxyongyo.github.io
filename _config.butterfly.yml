@@ -93,7 +93,7 @@ disable_top_img: false
 index_img: /img/top_img/index.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: /img/top_img/index.jpg
 
 # The banner image of archive page
 archive_img:
@@ -260,7 +260,7 @@ comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo
   use:
-  # - Valine
+  - Valine
   # - Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
@@ -305,16 +305,16 @@ gitalk:
   pagerDirection: last # Comment sorting direction, available values are last and first.
   createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
 
-# valine
-# https://valine.js.org
+# valine (评论插件)(https://console.leancloud.cn/apps/GQBowJtUOLQctfCK0KifkRmp-gzGzoHsz/settings/keys)
+# https://valine.js.org 
 valine:
-  appId: # leancloud application app id
-  appKey: # leancloud application app key
+  appId: GQBowJtUOLQctfCK0KifkRmp-gzGzoHsz # leancloud application app id
+  appKey: fNCRYgFsWsjU9pW0f78df8kF # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
   placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
-  guest_info: nick,mail,link # valine comment header info (nick/mail/link)
+  guest_info: nick,mail # valine comment header info (nick/mail/link)
   recordIP: false # Record reviewer IP
   serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
   bg: # valine background
@@ -594,7 +594,7 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size:
+  global-font-size: 16px
   code-font-size:
   font-family:
   code-font-family:

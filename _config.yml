@@ -14,7 +14,7 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://zxyong.gitee.io/
-permalink: :year-:month-:day/:title/
+permalink: :year:month:day/:pathname/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -108,7 +108,7 @@ theme: butterfly
 deploy:
   type: git
   repo: 
-    github: git@github.com:ZxyongYo/zxyong.git
+    github: git@github.com:ZxyongYo/zxyongyo.github.io.git
     gitee: git@gitee.com:zxyong/zxyong.git
   branch: master
 
@@ -117,3 +117,31 @@ deploy:
 search:
   path: search.xml
   field: post
+
+# 7.live2d配置宠物
+live2d:
+  # 当enable 为true的时候，会启用yaliya主题自带宠物shizuku,橘头发小姐姐，而且不可以配置位置，所以需要讲enable注释掉
+  # enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  model:
+    use: live2d-widget-model-wanko # 是一只趴在碗里的狗狗
+    # live2d-widget-model-wanko # 通过修改use来确定使用哪种model
+    # hibiki 是一个御姐
+    # use: live2d-widget-model-hibiki
+    # haruto 海军服女孩，有点难看
+    # use: live2d-widget-model-haruto
+  display:
+    position: right
+    width: 150
+    height: 300
+    # 一个比较可爱的位置
+    # hOffset: 200 
+    # vOffset: -100
+    # 第二个位置配置，这个在左侧边栏位置很居中
+    hOffset: 10  # 调节水平位置
+    vOffset: -50  # 调节垂直位置
+  mobile:
+    show: false
