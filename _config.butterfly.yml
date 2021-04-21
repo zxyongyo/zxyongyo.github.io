@@ -594,7 +594,7 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size: 16px
+  global-font-size:
   code-font-size:
   font-family:
   code-font-family:
@@ -719,7 +719,7 @@ newest_comments:
 # --------------------------------------
 
 # Change font size
-change_font_size: false
+change_font_size: true
 
 # Conversion between Traditional and Simplified Chinese (简繁转换)
 translate:
