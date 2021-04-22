@@ -28,7 +28,7 @@ if theme.aside.card_author.enable
             .length-num= site.categories.length
 
     if theme.aside.card_author.button.enable
-      a#card-info-btn.button--animated(href=theme.aside.card_author.button.link||'javascript:;')(onclick=`btf.snackbarShow('按下 CTRL + D 将本页加入书签')`)
+      a#card-info-btn.button--animated(href=theme.aside.card_author.button.link||'javascript:;' onclick=`btf.snackbarShow('按下 CTRL + D 将本页加入书签')`)
         i(class=theme.aside.card_author.button.icon)
         span=theme.aside.card_author.button.text
   

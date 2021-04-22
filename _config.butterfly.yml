@@ -313,7 +313,7 @@ valine:
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
-  placeholder: Please leave your footprints # valine comment input placeholder (like: Please leave your footprints)
+  placeholder: 留言请先填写您的昵称和email # valine comment input placeholder (like: Please leave your footprints)
   guest_info: nick,mail # valine comment header info (nick/mail/link)
   recordIP: false # Record reviewer IP
   serverURLs: # This configuration is suitable for domestic custom domain name users, overseas version will be automatically detected (no need to manually fill in)
@@ -809,7 +809,7 @@ aplayerInject:
   enable: false
   per_page: true
 
-# Snackbar (Toast Notification 彈窗)
+# Snackbar (Toast Notification 弹窗)
 # https://github.com/polonel/SnackBar
 # position 彈窗位置
 # 可選 top-left / top-center / top-right / bottom-left / bottom-center / bottom-right
@@ -829,10 +829,10 @@ pangu:
   enable: false
   field: site # site/post
 
-# Lazyload (圖片懶加載)
+# Lazyload (图片懒加载)
 # https://github.com/verlok/lazyload
 lazyload:
-  enable: false
+  enable: true
   post: /img/loading.gif
 
 # PWA
