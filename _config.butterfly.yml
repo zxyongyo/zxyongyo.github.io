@@ -322,6 +322,11 @@ valine:
   enableQQ: false # enable the Nickname box to automatically get QQ Nickname and QQ Avatar
   requiredFields: nick,mail # required fields (nick/mail)
   option:
+  master: # md5加密后的博主邮箱
+    - 2b43f05a0d1299e99a51e9b4e1a7a24b  #可添加多个
+  friends: # md5加密后的小伙伴邮箱
+    - ca0d64fd024d278f9fe5467f207a5c08 #可添加多个
+  tagMeta: '掌柜的,小二,客官' # 标签要显示的文字,默认'博主,小伙伴,访客'
 
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
@@ -882,7 +887,7 @@ CDN:
   # comments
   gitalk: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
   gitalk_css: https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css
-  valine: https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js
+  valine: https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js
   disqusjs: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js
   disqusjs_css: https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css
   utterances: https://utteranc.es/client.js
