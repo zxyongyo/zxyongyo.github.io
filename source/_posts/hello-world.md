@@ -1,5 +1,6 @@
 ---
 title: Hello World
+pathname: "helloWrold"
 date: 2021-04-19 14:47:02
 categories: 
   - 其他
