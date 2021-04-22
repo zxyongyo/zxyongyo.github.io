@@ -633,7 +633,11 @@ subtitle:
   sub: "You never thought <br/> you'd be much good for anyone"
 
 # Loading Animation (加载动画)
-preloader: false
+preloader:
+  enable: true # true|false
+  load_color: '#37474f' # '#37474f'
+  load_style: wizard # # spinner-box|wizard|ironheart|scarecrow|image
+  load_image:  # url
 
 # aside (侧边栏)
 # --------------------------------------
