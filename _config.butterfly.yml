@@ -658,7 +658,7 @@ aside:
     description:
     button: # 修改 themes\butterfly\layout\includes\widget\card_author.pug
       enable: true
-      icon: fab fa-bookmark
+      icon: fas fa-bookmark
       text: 加入书签
       link: 
   card_announcement:
