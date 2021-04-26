@@ -29,4 +29,6 @@ mathjax	【可选】显示mathjax(当设置mathjax的per_page: false时，才需
 katex	【可选】显示katex(当设置katex的per_page: false时，才需要配置，默认 false)
 aplayer	【可选】在需要的页面加载aplayer的js和css,请参考文章下面的音乐 配置
 highlight_shrink	【可选】配置代码框是否展开(true/false)(默认为设置中highlight_shrink的配置)
-aside	【可选】显示侧边栏 (默认 true) -->
+aside	【可选】显示侧边栏 (默认 true) 
+top 【可选】 置顶 数字越大越靠前
+-->

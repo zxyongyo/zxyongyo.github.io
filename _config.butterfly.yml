@@ -23,7 +23,7 @@ hide_sidebar_menu_child: false
 # Code Blocks (代码相关)
 # --------------------------------------
 
-highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -34,7 +34,7 @@ code_word_wrap: false
 copy:
   enable: true
   copyright:
-    enable: false
+    enable: true
     limit_count: 50
 
 # social settings (社交图标设置)
@@ -123,7 +123,7 @@ cover:
   archives_enable: true
   # the position of cover in home page (封面显示的位置)
   # left/right/both
-  position: both
+  position: left
   # When cover is not set, the default cover is displayed (当没有设置cover时，默认的封面显示)
   default_cover:
     # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
@@ -491,7 +491,7 @@ theme_color:
   paginator: "#49B1F5" # "#00c4b6"  页码颜色
   button_hover: "#FF7242"
   text_selection: "#00c4b6"
-  link_color: "#99a9bf"
+  link_color:  "#1e90ff" # "#99a9bf"  超链接颜色
   meta_color: "#858585"
   hr_color: "#A4D8FA"
   code_foreground: "#F47466"
@@ -593,8 +593,8 @@ display_mode: light
 beautify:
   enable: true
   field: post # site/post
-  title-prefix-icon: '\f0c1'
-  title-prefix-icon-color: '#F47466'
+  title-prefix-icon: '\f0eb' # '\f0c1'
+  title-prefix-icon-color: '#f1c40f' # '#F47466'
 
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
