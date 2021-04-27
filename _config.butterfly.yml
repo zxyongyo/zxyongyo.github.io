@@ -308,8 +308,8 @@ gitalk:
 # valine (评论插件)(https://console.leancloud.cn/apps/GQBowJtUOLQctfCK0KifkRmp-gzGzoHsz/settings/keys)
 # https://valine.js.org 
 valine:
-  appId: GQBowJtUOLQctfCK0KifkRmp-gzGzoHsz # leancloud application app id
-  appKey: fNCRYgFsWsjU9pW0f78df8kF # leancloud application app key
+  appId: KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI # leancloud application app id
+  appKey: YJWsS81h89jbzqex54peI84M # leancloud application app key
   pageSize: 10 # comment list page size
   avatar: monsterid # gravatar style https://valine.js.org/#/avatar
   lang: zh-CN # i18n: zh-CN/zh-TW/en/ja
@@ -326,7 +326,7 @@ valine:
     - 2b43f05a0d1299e99a51e9b4e1a7a24b  #可添加多个
   friends: # md5加密后的小伙伴邮箱
     - ca0d64fd024d278f9fe5467f207a5c08 #可添加多个
-  tagMeta: '掌柜的,小二,客官' # 标签要显示的文字,默认'博主,小伙伴,访客'
+  tagMeta: '老板,经理,客户' # 标签要显示的文字,默认'博主,小伙伴,访客'
 
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
