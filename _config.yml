@@ -139,7 +139,7 @@ live2d:
     # haruto 海军服女孩，有点难看
     # use: live2d-widget-model-haruto
   display:
-    position: right
+    position: left
     width: 150
     height: 300
     # 一个比较可爱的位置

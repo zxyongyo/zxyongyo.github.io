@@ -305,7 +305,7 @@ gitalk:
   pagerDirection: last # Comment sorting direction, available values are last and first.
   createIssueManually: false # Gitalk will create a corresponding github issue for your every single page automatically
 
-# valine (评论插件)(https://console.leancloud.cn/apps/GQBowJtUOLQctfCK0KifkRmp-gzGzoHsz/settings/keys)
+# valine (评论插件)(https://console.leancloud.app/apps)
 # https://valine.js.org 
 valine:
   appId: KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI # leancloud application app id
