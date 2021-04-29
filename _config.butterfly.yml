@@ -868,7 +868,7 @@ css_prefix: true
 inject:
   head:
     - <meta name="baidu-site-verification" content="code-MYWxbyJPTW" /> # https://ziyuan.baidu.com/site/siteverify?id=996422466#/
-    - <meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" />
+    - <meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /> # https://search.google.com/search-console?resource_id=https%3A%2F%2Fzxyong.gitee.io%2F
   bottom:
     # - <script src="xxxx"></script>
 
