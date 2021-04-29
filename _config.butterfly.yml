@@ -868,6 +868,7 @@ css_prefix: true
 inject:
   head:
     - <meta name="baidu-site-verification" content="code-MYWxbyJPTW" /> # https://ziyuan.baidu.com/site/siteverify?id=996422466#/
+    - <meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" />
   bottom:
     # - <script src="xxxx"></script>
 
