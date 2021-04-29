@@ -176,7 +176,7 @@ index_post_content:
 toc:
   enable: true
   number: true
-  style_simple: true
+  style_simple: true # 文章页 侧栏只展示目录
 
 post_copyright:
   enable: true
@@ -408,7 +408,7 @@ crisp:
 footer:
   owner:
     enable: true
-    since: 2020
+    since: 2021
   custom_text: Hi, welcome to my blog!
   copyright: true # Copyright of theme and framework
 
@@ -867,7 +867,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <meta name="baidu-site-verification" content="code-MYWxbyJPTW" /> # https://ziyuan.baidu.com/site/siteverify?id=996422466#/
   bottom:
     # - <script src="xxxx"></script>
 
