@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>开始使用git管理您的代码 | zxyong</title><meta name="keywords" content="git,多人协作"><meta name="author" content="zxyong"><meta name="copyright" content="zxyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="开始使用git管理您的项目进行多人协作开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开始使用git管理您的代码">
+<meta property="og:url" content="https://zxyong.gitee.io/posts/524f855e/index.html">
+<meta property="og:site_name" content="zxyong">
+<meta property="og:description" content="开始使用git管理您的项目进行多人协作开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/20210507161530.png">
+<meta property="article:published_time" content="2021-05-07T08:09:08.000Z">
+<meta property="article:modified_time" content="2022-09-05T03:11:47.213Z">
+<meta property="article:author" content="zxyong">
+<meta property="article:tag" content="其他">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/20210507161530.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zxyong.gitee.io/posts/524f855e/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: zxyong","link":"链接: ","source":"来源: zxyong","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#00c4b6","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-05 11:11:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="baidu-site-verification" content="code-MYWxbyJPTW" /><meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/20210507161530.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zxyong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">开始使用git管理您的代码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-07T08:09:08.000Z" title="发表于 2021-05-07 16:09:08">2021-05-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-05T03:11:47.213Z" title="更新于 2022-09-05 11:11:47">2022-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/other/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><ul>
+<li><p>git 安装地址： <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p>
+</li>
+<li><p>安装完成后，在桌面右键菜单找到“Git Bash”，点击蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507162251.png" alt="git"></p>
+</li>
+<li><p>确认安装成功后，还需要最后一步设置，在命令行输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>说明：git config –list  命令可以查看当前Git环境所有配置</em></p>
+</li>
+</ul>
+<h2 id="注册GitHub及创建远程仓库"><a href="#注册GitHub及创建远程仓库" class="headerlink" title="注册GitHub及创建远程仓库"></a>注册GitHub及创建远程仓库</h2><ul>
+<li><p>注册GitHub： <a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a> </p>
+<p>注册并登录成功之后，进到GitHub主页，在页面有上方用户菜单上选择 “+”-&gt;New repository 创建一个新的仓库</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507162810.png" alt="创建仓库"></p>
+<p>给仓库取一个名字，点击创建仓库按钮 你将成功创建一个仓库</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507163033.png" alt="新建仓库"></p>
+</li>
+</ul>
+<h2 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h2><ul>
+<li>在你自己的电脑合适的地方创建一个目录，进到这个目录，打开git bash通过<code>git init</code>命令把这个目录变成Git可以管理的仓库。</li>
+</ul>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507163509.png" alt="创建本地仓库"></p>
+<h2 id="将本地仓库和远程库关联"><a href="#将本地仓库和远程库关联" class="headerlink" title="将本地仓库和远程库关联"></a>将本地仓库和远程库关联</h2><p>​        为了把本地的仓库与github的仓库关联起来，还需要配置ssh key。</p>
+<ul>
+<li><p>创建ssh key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后一路回车，如果创建成功，本地用户主目录下就会有一个 <code>.ssh</code>文件，里面有<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件。<code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥，可以放心地告诉任何人。<br>你可以<code>cd ~/.ssh</code>查看你的ssh key</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br><span class="line">Administrator@WIN-J9R6H39JOF7 MINGW64 ~/.ssh</span><br><span class="line">$ <span class="built_in">ls</span></span><br><span class="line">id_rsa  id_rsa.pub  known_hosts</span><br><span class="line">$ <span class="built_in">cat</span> id_rsa.pub</span><br><span class="line">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDpVE44p3iltnmBgTyBtLMh6Hr1qyPOEziCXrM2vAqOK4O+Tv3FkzsDlaj...</span><br></pre></td></tr></table></figure>
+
+<p>这个就是你的公钥，把它复制到GitHub进行配置:</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507164311.png" alt="配置ssh key"></p>
+</li>
+<li><p>接下来就可以把远程GitHub库和本地仓库关联了</p>
+<p>用 <code>git remote add 仓库名 仓库地址</code>的命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:ZxyongYo/test.git</span><br></pre></td></tr></table></figure>
+
+<p>你的仓库地址在这哦</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210507164636.png" alt="关联远程仓库"></p>
+<p>现在，你就可以把本地库的所有内容推送到远程库上了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br><span class="line">Everything up-to-date</span><br><span class="line">Branch <span class="string">&#x27;master&#x27;</span> <span class="built_in">set</span> up to track remote branch <span class="string">&#x27;master&#x27;</span> from <span class="string">&#x27;origin&#x27;</span>.</span><br></pre></td></tr></table></figure>
+
+<p>提示:如果这一步报错了 是因为远程库与本地库不一致造成的，那么我们把远程库同步到本地库就可以了。<br>使用指令<code>git pull origin master</code><br>然后再push就行了。</p>
+</li>
+</ul>
+<h2 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h2><h3 id="克隆（clone）"><a href="#克隆（clone）" class="headerlink" title="克隆（clone）"></a>克隆（clone）</h3><p>在实际开发中,大多数时候，我们没有机会从头init仓库，而是远程仓库已经存在，我们要参与到项目中，这时只需要将远程仓库clone下来就好。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> 仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>新项目还在开发阶段，没有正式对外发布，所以开发同事合并代码到<strong>dev</strong>分支上(或者其他名称分支上)，而不是到默认分支上, 这时我们需要使用命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> -b dev 仓库地址</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支（branch）"><a href="#分支（branch）" class="headerlink" title="分支（branch）"></a>分支（branch）</h3><p>通常情况下, 我们自己在协助开发, 需要添加一个新功能的时候, 是不能在主分支上直接修改的, 需要我们自己再创建一个新的分支, 等新功能开发完成后再合并到主分支 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 新建一个debug分支</span></span><br><span class="line">$ git branch debug</span><br><span class="line"><span class="comment">## 切换到debug分支</span></span><br><span class="line"><span class="comment">## 可简写为 git checkout -b debug</span></span><br><span class="line">$ git checkout debug</span><br><span class="line">Switched to branch <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"><span class="comment">## 查看分支，当前已经在debug分支上面</span></span><br><span class="line">$ git branch</span><br><span class="line">* debug</span><br><span class="line">  master</span><br><span class="line"><span class="comment">## debug解决后，把修改合并到master，并删除debug分支</span></span><br><span class="line">$ git checkout master</span><br><span class="line">$ git merge debug 	</span><br><span class="line">$ git branch -d debug</span><br></pre></td></tr></table></figure>
+
+<h3 id="拉取别人的提交"><a href="#拉取别人的提交" class="headerlink" title="拉取别人的提交"></a>拉取别人的提交</h3><p>在我们完成了某项功能的修改，需要push到远程的时候，其他协作者可能已经提交了他们的修改，这时，我们需要先把最新的提交拉取下来，加入我们的修改，再重新提交上去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ git push</span><br><span class="line"><span class="comment">## push被驳回了，因为有其他人已经提交了更新</span></span><br><span class="line"> ! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to <span class="string">&#x27;git@github.com:JavyZheng/git_demo.git&#x27;</span></span><br><span class="line">hint: Updates were rejected because the remote contains work that you <span class="keyword">do</span></span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., <span class="string">&#x27;git pull ...&#x27;</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">&#x27;Note about fast-forwards&#x27;</span> <span class="keyword">in</span> <span class="string">&#x27;git push --help&#x27;</span> <span class="keyword">for</span> details </span><br><span class="line"><span class="comment">## 拉取远程提交内容并合并到当前工作区</span></span><br><span class="line">$ git pull</span><br><span class="line"><span class="comment">## 重新push到远程</span></span><br><span class="line">$ git push</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>当拉取协作者的提交时，很可能不同开发者修改了同一个文件的同一部分，这时候，就会出现冲突，我们需要手动解决这些冲突，再重新提交上去。</p>
+<p><strong>例如冲突代码如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; <span class="variable constant_">HEAD</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;This is master branch.&#x27;</span>);</span><br><span class="line">=======</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;This is developOne1 branch.&#x27;</span>);</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; developOne</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>根据需求我们手动将代码改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;This is master branch.&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再提交就没有问题了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zxyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zxyong.gitee.io/posts/524f855e/">https://zxyong.gitee.io/posts/524f855e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zxyong.gitee.io" target="_blank">zxyong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/other/">其他</a><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zxyong/blog-image/raw/master/img/20210507161530.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1f5ea842/"><img class="prev-cover" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20220310162139.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">css切角效果</div></div></a></div><div class="next-post pull-right"><a href="/posts/81781fa3/"><img class="next-cover" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210428143539.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">彻底弄懂 js中事件冒泡和捕获🎈</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85git"><span class="toc-number">1.</span> <span class="toc-text">安装git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8CGitHub%E5%8F%8A%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">注册GitHub及创建远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">创建本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%B3%E8%81%94"><span class="toc-number">4.</span> <span class="toc-text">将本地仓库和远程库关联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%85%8B%E9%9A%86"><span class="toc-number">5.</span> <span class="toc-text">从远程库克隆</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%EF%BC%88clone%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">克隆（clone）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%94%AF%EF%BC%88branch%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">分支（branch）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E5%88%AB%E4%BA%BA%E7%9A%84%E6%8F%90%E4%BA%A4"><span class="toc-number">5.3.</span> <span class="toc-text">拉取别人的提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">5.4.</span> <span class="toc-text">解决冲突</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/20210507161530.png')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By zxyong</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI',
+      appKey: 'YJWsS81h89jbzqex54peI84M',
+      placeholder: '留言请先填写您的昵称和email',
+      avatar: 'monsterid',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      master: '2b43f05a0d1299e99a51e9b4e1a7a24b'.split(','),
+      friends: '37ab1fabf6131d27487a7ce706c2f51f'.split(','),
+      tagMeta: '老板,股东,客户'.split(',')
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":10,"vOffset":-50},"mobile":{"show":false},"log":false,"tagMode":false});</script></body></html>

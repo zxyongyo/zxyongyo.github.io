@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>使用hexo+git搭建自己的博客网站 | zxyong</title><meta name="keywords" content="Hexo,博客,git"><meta name="author" content="zxyong"><meta name="copyright" content="zxyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="使用hexo+git搭建自己的博客网站">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用hexo+git搭建自己的博客网站">
+<meta property="og:url" content="https://zxyong.gitee.io/posts/acb03bb7/index.html">
+<meta property="og:site_name" content="zxyong">
+<meta property="og:description" content="使用hexo+git搭建自己的博客网站">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg">
+<meta property="article:published_time" content="2021-04-20T06:47:02.000Z">
+<meta property="article:modified_time" content="2022-09-05T03:11:47.212Z">
+<meta property="article:author" content="zxyong">
+<meta property="article:tag" content="其他">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zxyong.gitee.io/posts/acb03bb7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: zxyong","link":"链接: ","source":"来源: zxyong","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#00c4b6","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-05 11:11:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="baidu-site-verification" content="code-MYWxbyJPTW" /><meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zxyong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">使用hexo+git搭建自己的博客网站</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-20T06:47:02.000Z" title="发表于 2021-04-20 14:47:02">2021-04-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-05T03:11:47.212Z" title="更新于 2022-09-05 11:11:47">2022-09-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/other/">其他</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>👉 最近偶然在网上看到一个非常漂亮的个人博客网站，突然觉得自己作为一个前端攻城狮(小菜鸡)🙈，也要有一个这样的网站；<font color="red">❤</font>动不如行动，问了度娘后找到了最简便的方法，<font color="#70a1ff">GitHub+Hexo搭建静态博客网站</font>，下面介绍搭建过程，只需简单的几步。</p>
+<h2 id="Hexo-👍"><a href="#Hexo-👍" class="headerlink" title="Hexo 👍"></a>Hexo 👍</h2><p>生成静态博客网页的一个脚手架，<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">hexo官网</a> 的api教程，插件，主题什么的都非常丰富，有耐心的同学可以去自己摸索一下，我这里只写一下怎么搞一个能跑起来的博客网站。</p>
+<h2 id="安装hexo-🧰"><a href="#安装hexo-🧰" class="headerlink" title="安装hexo 🧰"></a>安装hexo 🧰</h2><p>安装前您的电脑上必须已经安装了 <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js</a> 和 <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a>，如果已经安装这两个工具（不会安装的请自行百度吧），那么您就可以使用npm安装Hexo了，在任意目录打开终端，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="建站-⚔️"><a href="#建站-⚔️" class="headerlink" title="建站 ⚔️"></a>建站 ⚔️</h2><h3 id="初始化Hexo目录"><a href="#初始化Hexo目录" class="headerlink" title="初始化Hexo目录"></a>初始化Hexo目录</h3><p>依次执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;	<span class="comment"># 初始化hexo目录  folder-目录名</span></span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;	<span class="comment"># 进入hexo目录</span></span><br><span class="line">$ npm install	<span class="comment"># 安装依赖	</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>如果以上步骤都正确，那么您现在的hexo目录结构应该是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── node_modules</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>_config.yml：网站的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">配置</a> 信息，您可以在此配置大部分的参数。</p>
+</li>
+<li><p>package.json：应用的依赖信息。</p>
+</li>
+<li><p>scaffolds：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing">模版</a> 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+</li>
+<li><p>source：资源文件夹是存放用户资源的地方。除 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 <code>public</code> 文件夹，而其他文件会被拷贝过去。</p>
+</li>
+<li><p>themes：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/themes">主题</a> 文件夹。Hexo 会根据主题来生成静态页面。</p>
+</li>
+</ul>
+<h2 id="运行-amp-部署-🚀"><a href="#运行-amp-部署-🚀" class="headerlink" title="运行&amp;部署 🚀"></a>运行&amp;部署 🚀</h2><h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p>在终端执行<code>hexo server</code>，执行成功后，在浏览器输入<code>localhost:4000</code>，然后回车，如果成功打开页面，那么恭喜🎉，第一步已经成功!</p>
+<blockquote>
+<p>如果执行遇到了报错，可能是因为hexo默认使用的4000端口被占用了，可以使用<code>hexo server -p 4000</code>指定端口运行。</p>
+</blockquote>
+<h3 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h3><p>现在网站只是能在本地打开，如果想要随时随地的到处炫耀😎，那么我们要将它部署到GitHub上，这样就可以在任何地方打开了。</p>
+<ol>
+<li><p>新建git仓库</p>
+<p>在自己的 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>上新建一个仓库*(没有的请自行去注册/登录)*，</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210426170628.png" alt="GitHub新建仓库" title="GitHub新建仓库"></p>
+</li>
+<li><p>配置hexo部署到GitHub</p>
+<p>用您的编辑器打开hexo根目录的<code>_config.yml</code>文件，找到最下面的<code>deploy</code>配置，添加如下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:zxyo/zxyong.git</span> <span class="comment"># 改为您自己刚才建的仓库地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上面github: 的仓库地址一定要改为您自己的仓库ssh克隆的地址。<br>使用ssh地址而不用https是为了避免每次部署的时候都需要登录github账户。[<a href="">配置ssh</a>]</p>
+</blockquote>
+</li>
+<li><p>部署到gitee</p>
+<p>由于国内对访问GitHub的限制，我们也可以同时部署到gitee，配置方法与配置github相同，然后添加一行：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">git@github.com:zxyo/zxyong.git</span> <span class="comment"># 改为您自己的仓库地址</span></span><br><span class="line">    <span class="attr">gitee:</span> <span class="string">git@gitee.com:zxyo/zxyong.git</span> <span class="comment"># 改为您自己的仓库地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></li>
+<li><p>确保一切无误后，就可以使用命令部署了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件</span></span><br><span class="line">$ hexo gnerate <span class="comment"># 生成静态文件</span></span><br><span class="line">$ hexo deploy <span class="comment"># 部署到_config.yml中配置的git仓库中</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在GitHub或Gitee的仓库设置里开启git page，就可以访问到您的博客了✌！<br>Gitee每次部署后都需要去手动更新git page。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="更换主题-🎨"><a href="#更换主题-🎨" class="headerlink" title="更换主题 🎨"></a>更换主题 🎨</h2><ol>
+<li><p>hexo官网的 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">主题</a> 有很多，可以自己去找一个喜欢的，我用的是 <a target="_blank" rel="noopener" href="https://butterfly.js.org/posts/21cfbf15/">Butterfly</a> 这个主题。</p>
+</li>
+<li><p>找到这个主题的 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">GitHub仓库</a> 或 <a target="_blank" rel="noopener" href="https://gitee.com/iamjerryw/hexo-theme-butterfly">Gitee仓库</a> clone下来放到你的hexo项目的themes目录下。</p>
+</li>
+<li><p>修改<code>_config.yml</code>文件，把主题改为butterfly：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure></li>
+<li><p>安装插件，如果你没有pug和stylus渲染器，执行命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure></li>
+<li><p>执行<code>hexo clean &amp; hexo d -g</code>重新打开网页就能看见更换后的样子啦！</p>
+</li>
+<li><p>主题配置</p>
+<p>在<code>/themes/butterfly</code>目录下还有一个<code>_config.yml</code>配置文件，这个是你主题的配置文件，里面配置项很多可以查看 <a target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/">官方文档</a> 进行自由配置。</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zxyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zxyong.gitee.io/posts/acb03bb7/">https://zxyong.gitee.io/posts/acb03bb7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zxyong.gitee.io" target="_blank">zxyong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/other/">其他</a><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/bee75f83/"><img class="prev-cover" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/20210426170639.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">js数组和对象循环遍历的方法</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo-%F0%9F%91%8D"><span class="toc-number">1.</span> <span class="toc-text">Hexo 👍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hexo-%F0%9F%A7%B0"><span class="toc-number">2.</span> <span class="toc-text">安装hexo 🧰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%99-%E2%9A%94%EF%B8%8F"><span class="toc-number">3.</span> <span class="toc-text">建站 ⚔️</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96Hexo%E7%9B%AE%E5%BD%95"><span class="toc-number">3.1.</span> <span class="toc-text">初始化Hexo目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">目录结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-amp-%E9%83%A8%E7%BD%B2-%F0%9F%9A%80"><span class="toc-number">4.</span> <span class="toc-text">运行&amp;部署 🚀</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="toc-number">4.1.</span> <span class="toc-text">本地预览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0GitHub"><span class="toc-number">4.2.</span> <span class="toc-text">部署到GitHub</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98-%F0%9F%8E%A8"><span class="toc-number">5.</span> <span class="toc-text">更换主题 🎨</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By zxyong</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI',
+      appKey: 'YJWsS81h89jbzqex54peI84M',
+      placeholder: '留言请先填写您的昵称和email',
+      avatar: 'monsterid',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      master: '2b43f05a0d1299e99a51e9b4e1a7a24b'.split(','),
+      friends: '37ab1fabf6131d27487a7ce706c2f51f'.split(','),
+      tagMeta: '老板,股东,客户'.split(',')
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":10,"vOffset":-50},"mobile":{"show":false},"log":false,"tagMode":false});</script></body></html>
