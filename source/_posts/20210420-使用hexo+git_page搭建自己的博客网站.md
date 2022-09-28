@@ -1,11 +1,11 @@
 ---
-title: 使用hexo+git搭建自己的博客网站
+title: 使用hexo+git page搭建自己的博客网站
 categories: 其他
 tags:
   - 其他
   - Hexo
 keywords: Hexo,博客,git
-description: 使用hexo+git搭建自己的博客网站
+description: 使用hexo+git page搭建自己的博客网站
 cover: https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg
 aside: true
 abbrlink: acb03bb7

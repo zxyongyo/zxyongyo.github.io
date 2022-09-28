@@ -7,8 +7,10 @@ keywords:
 description: 
 cover: 
 ---
-<!-- title	【必需】文章标题
+<!-- 
+title	【必需】文章标题
 date	【必需】文章创建日期
+abbrlink  【必需】不需要写, 会自动生成
 updated	【可选】文章更新日期
 tags	【可选】文章标籤
 categories	【可选】文章分类

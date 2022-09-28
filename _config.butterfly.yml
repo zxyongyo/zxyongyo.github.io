@@ -326,7 +326,7 @@ valine:
     - 2b43f05a0d1299e99a51e9b4e1a7a24b  #可添加多个
   friends: # 32位小 https://tool.chinaz.com/tools/md5.aspx md5加密后的小伙伴邮箱
     - 37ab1fabf6131d27487a7ce706c2f51f #可添加多个
-  tagMeta: '老板,股东,客户' # 标签要显示的文字,默认'博主,小伙伴,访客'
+  tagMeta: '博主,小伙伴,访客' # 标签要显示的文字,默认'博主,小伙伴,访客'
 
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
