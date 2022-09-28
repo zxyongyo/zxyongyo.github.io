@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git学习使用笔记 | zxyong</title><meta name="keywords" content="git,github"><meta name="author" content="zxyong"><meta name="copyright" content="zxyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Git学习和使用的笔记,记录学习和使用git遇到的问题和技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习使用笔记">
+<meta property="og:url" content="https://zxyong.gitee.io/posts/4bae23a1/index.html">
+<meta property="og:site_name" content="zxyong">
+<meta property="og:description" content="Git学习和使用的笔记,记录学习和使用git遇到的问题和技巧">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp">
+<meta property="article:published_time" content="2022-09-27T02:55:05.000Z">
+<meta property="article:modified_time" content="2022-09-28T02:39:07.126Z">
+<meta property="article:author" content="zxyong">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zxyong.gitee.io/posts/4bae23a1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#00c4b6","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-28 10:39:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="baidu-site-verification" content="code-MYWxbyJPTW" /><meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zxyong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git学习使用笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-27T02:55:05.000Z" title="发表于 2022-09-27 10:55:05">2022-09-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-28T02:39:07.126Z" title="更新于 2022-09-28 10:39:07">2022-09-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Git/">Git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>本文记录我学习和使用  <code>git</code> 的笔记，记录学习和使用 git 遇到的问题和技巧。(持续更新…)</strong></p>
+<h3 id="合并多个commit"><a href="#合并多个commit" class="headerlink" title="合并多个commit"></a>合并多个commit</h3><ul>
+<li><code>git rebase</code> 命令用来在另一个分支基础之上重新应用提交，用于把一个分支的修改合并到当前分支。</li>
+<li>也可以利用这个命令来合并多个某个分支的多条 commit。</li>
+</ul>
+<p>例如我的 git 历史提交中有这样的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">a9753cc (HEAD -&gt; master) edit app.js</span><br><span class="line">eb6604c edit app.js</span><br><span class="line">8239289 edit app.js</span><br><span class="line">2bb4ff1 create app.js</span><br><span class="line">c81bd04 edit README.md</span><br><span class="line">0a38a95 edit README.md</span><br><span class="line">e87226d edit README.md</span><br><span class="line">c30085a create README.md</span><br></pre></td></tr></table></figure>
+
+<p>可以看到有很多 commit 的信息都是重复的。</p>
+<p>这时就可以使用以下命令重新编辑以往7次的 commit 历史：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从HEAD版本开始往过去数7个版本(包含HEAD版本)</span></span><br><span class="line">$ git rebase -i HEAD~7</span><br><span class="line"><span class="comment"># 指定版本号前的所有版本(不包含此版本)</span></span><br><span class="line">$ git rebase -i c30085a</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>-i（--interactive）</code>：弹出交互式的界面进行编辑合并</p>
+</blockquote>
+<p>输入命令，按下回车后会弹出 vim，让你编辑</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">$ git rebase -i HEAD~7</span><br><span class="line">pick e87226d edit README.md</span><br><span class="line">pick 0a38a95 edit README.md</span><br><span class="line">pick c81bd04 edit README.md</span><br><span class="line">pick 2bb4ff1 create app.js</span><br><span class="line">pick 8239289 edit app.js</span><br><span class="line">pick eb6604c edit app.js</span><br><span class="line">pick a9753cc edit app.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># Rebase c30085a..a9753cc onto c30085a (7 commands)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Commands:</span></span><br><span class="line"><span class="comment"># p, pick &lt;commit&gt; = 正常选中</span></span><br><span class="line"><span class="comment"># r, reword &lt;commit&gt; = 选中，并且修改提交信息</span></span><br><span class="line"><span class="comment"># e, edit &lt;commit&gt; = 选中，rebase时会暂停，允许你修改这个commit</span></span><br><span class="line"><span class="comment"># s, squash &lt;commit&gt; = 选中，会将当前commit与上一个commit合并，保留所有commit信息</span></span><br><span class="line"><span class="comment"># f, fixup [-C | -c] &lt;commit&gt; = 与squash相同，但不会保存当前commit的提交信息, </span></span><br><span class="line"><span class="comment">#                    unless -C is used, in which case</span></span><br><span class="line"><span class="comment">#                    keep only this commit&#x27;s message; -c is same as -C but</span></span><br><span class="line"><span class="comment">#                    opens the editor</span></span><br><span class="line"><span class="comment"># x, exec &lt;command&gt; = 执行其他shell命令</span></span><br><span class="line"><span class="comment"># b, break = 停在这里，可以使用&#x27;git rebase --continue&#x27;继续rebase</span></span><br><span class="line"><span class="comment"># d, drop &lt;commit&gt; = 删除这个commit，这次提交的所有更改也会丢弃</span></span><br><span class="line"><span class="comment"># l, label &lt;label&gt; = label current HEAD with a name</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑如下，然后 <code>:wq</code> 保存退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把 c81bd04 和 0a38a95 合并到 e87226d,不保留 0a38a95 和 c81bd04 的 commit message</span></span><br><span class="line">pick e87226d edit README.md</span><br><span class="line">f 0a38a95 edit README.md</span><br><span class="line">f c81bd04 edit README.md</span><br><span class="line">pick 2bb4ff1 create app.js</span><br><span class="line"><span class="comment"># 把 a9753cc 和 eb6604c 合并到 8239289,保留所有 commit message</span></span><br><span class="line">pick 8239289 edit app.js</span><br><span class="line">s eb6604c edit app.js</span><br><span class="line">s a9753cc edit app.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<p>然后又会弹出一个 vim 让编辑 commit message，编辑如下，然后 <code>:wq</code> 保存退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is a combination of 3 commits.</span></span><br><span class="line"><span class="comment"># This is the 1st commit message:</span></span><br><span class="line">edit app.js</span><br><span class="line"><span class="comment"># This is the commit message #2:</span></span><br><span class="line">add main fn</span><br><span class="line"><span class="comment"># This is the commit message #3:</span></span><br><span class="line">update server port</span><br><span class="line"></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<p>这时再查看合并后的 log，一下就简洁了好多</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">714f406 (HEAD -&gt; master) edit app.js</span><br><span class="line">e17c8ac create app.js</span><br><span class="line">949598c edit README.md</span><br><span class="line">c30085a create README.md</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决冲突</strong></p>
+<ul>
+<li>在 <code>git rebase</code> 时可能会发生冲突，这时就需要先去解决冲突。</li>
+<li>解决完冲突后再 <code>git add .</code>，然后继续 rebase <code>git rebase --continue</code></li>
+<li>如果被合并的 commit，合并前已经推送到了远程库，可能无法正常推送到远程库，可以使用 <code>--force</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果是多人协作开发不建议使用</span></span><br><span class="line">$ git push --force origin master</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="修改-commit-的信息"><a href="#修改-commit-的信息" class="headerlink" title="修改 commit 的信息"></a>修改 commit 的信息</h3><p><strong>修改上一次提交的 commit 信息：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit --amend --message=<span class="string">&quot;commit message&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>修改历史提交的 commit 信息</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">a2cf832 (HEAD -&gt; master) edit app.js</span><br><span class="line">8e5130d insert one line from app.js</span><br><span class="line">4968028 delete one line from app.js</span><br><span class="line">e17c8ac create app.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改 8e5130d 和 4968028 的 commit message</span></span><br><span class="line">$ git rebase -i HEAD~3 <span class="comment"># 或者 git rebase -i e17c8ac</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 把要修改的 commit 前的 pick 改为 r 或 reword</span></span><br><span class="line">r 4968028 delete one line from app.js</span><br><span class="line">r 8e5130d insert one line from app.js</span><br><span class="line">pick a2cf832 edit app.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># :wq 保存并退出，然后依次修改 commit message，:wq 保存并退出</span></span><br><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">e146062 (HEAD -&gt; master) edit app.js</span><br><span class="line">c1fe1bf 从 app.js 中新增一行</span><br><span class="line">91ea1e8 从 app.js 中删除一行</span><br><span class="line">e17c8ac create app.js</span><br><span class="line"><span class="comment"># 就修改成功了</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zxyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zxyong.gitee.io/posts/4bae23a1/">https://zxyong.gitee.io/posts/4bae23a1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zxyong.gitee.io" target="_blank">zxyong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/ded4ef6d/"><img class="next-cover" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/1662349244628.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">ts实用类型</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AAcommit"><span class="toc-number">1.</span> <span class="toc-text">合并多个commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-commit-%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">修改 commit 的信息</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By zxyong</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI',
+      appKey: 'YJWsS81h89jbzqex54peI84M',
+      placeholder: '留言请先填写您的昵称和email',
+      avatar: 'monsterid',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      master: '2b43f05a0d1299e99a51e9b4e1a7a24b'.split(','),
+      friends: '37ab1fabf6131d27487a7ce706c2f51f'.split(','),
+      tagMeta: '博主,小伙伴,访客'.split(',')
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":10,"vOffset":-50},"mobile":{"show":false},"log":false,"tagMode":false});</script></body></html>
