@@ -32,9 +32,9 @@ code_word_wrap: false
 # copy settings
 # copyright: Add the copyright information after copied content (复制的内容后面加上版权信息)
 copy:
-  enable: false
+  enable: true
   copyright:
-    enable: true
+    enable: false
     limit_count: 50
 
 # social settings (社交图标设置)
