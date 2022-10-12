@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>css-grid 网格布局</title>
+      <link href="/posts/69e2d9c7/"/>
+      <url>/posts/69e2d9c7/</url>
+      
+        <content type="html"><![CDATA[<h3 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h3><ul><li><code>display: grid</code> - 指定一个容器使用网格布局</li></ul><br><ul><li><code>grid-template-columns</code> - 指定每一列的列宽</li><li><code>grid-template-rows</code> - 指定每一行的行高</li><li><code>grid-template</code> - 以上两个属性的简写   </li></ul><br><ul><li><p><code>row-gap</code> - 设置行与行的间隔（行间距）</p></li><li><p><code>column-gap</code> - 设置列与列的间隔（列间距）</p></li><li><p><code>gap</code> - 以上两个属性的简写形式  <code>gap: &lt;row-gap&gt; &lt;column-gap&gt;</code></p></li></ul><br><ul><li><p><code>grid-template-areas</code> - 定义区域</p></li><li><p><code>grid-auto-flow</code> - 项目放置顺序；默认值是 <code>row</code> 表示先行后列， <code>column</code>表示先列后行</p></li></ul><br><ul><li><p><code>justify-items</code> - 单元格内容的水平位置</p></li><li><p><code>align-items</code> - 单元格内容的垂直位置</p></li><li><p><code>place-items</code> - 以上两个属性的简写形式  <code>place-items: &lt;align-items&gt; &lt;justify-items&gt;</code></p></li></ul><br><ul><li><p><code>justify-content</code> - 整个内容区域在容器中的水平位置</p></li><li><p><code>align-centent</code> - 整个内容区域在容器中的垂直位置</p></li><li><p><code>place-centent</code> - 以上两个属性的简写形式 <code>place-content: &lt;align-content&gt; &lt;justify-content&gt;</code></p></li><li><p><code>grid-auto-columns</code> - 设置浏览器自动创建的多余网格的列宽</p></li><li><p><code>grid-auto-rows</code> - 设置浏览器自动创建的多余网格的行高</p></li></ul><h3 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h3><ul><li><p><code>grid-column-start</code> - 左边网格线所在的垂直网格线</p></li><li><p><code>grid-column-end</code> - 右边网格线所在的垂直网格线</p></li><li><p><code>grid-column</code> - 以上两个属性的简写形式 <code>grid-column: &lt;start-line&gt; / &lt;end-line&gt;</code></p></li></ul><br><ul><li><p><code>grid-row-start</code> - 上边网格线所在的水平网格线</p></li><li><p><code>grid-row-end</code> - 下边网格线所在的水平网格线</p></li><li><p><code>grid-row</code> - 以上两个属性的简写形式 <code>grid-row: &lt;start-line&gt; / &lt;end-line&gt;</code></p></li></ul><br><ul><li><p><code>grid-area</code> - 指定项目放在哪一个区域，</p><p>也能用作简写形式 <code>grid-area: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</code></p></li></ul><br><ul><li><p><code>justify-self</code> - 设置单元格内容的水平位置</p></li><li><p><code>align-self</code> - 设置单元格内容的垂直位置</p></li><li><p><code>place-self</code> - 前面两个属性的简写形式  <code>place-self: &lt;align-self&gt; &lt;justify-self&gt;</code></p></li></ul><h3 id="函数与关键字"><a href="#函数与关键字" class="headerlink" title="函数与关键字"></a>函数与关键字</h3><ul><li><p><code>repeat()</code> - 用于简化重复值，该函数可以用于 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> </p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span> <span class="number">50px</span> <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>auto-fill</code> - 自动填充至每行最大可容纳的单元格</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>fr</code> - grid 容器中的可变长度单位，按比例分配剩余空间，在<code>grid-template-columns</code>、<code>grid-template-rows</code>及相关属性中使用</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">150px</span> <span class="number">1</span>fr <span class="number">2</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>minmax()</code> - 定义一个长度闭区间，接受两个参数，分别为最小值和最大值</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr);</span><br></pre></td></tr></table></figure></li></ul><blockquote><p><a href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS Grid 网格布局教程 - 阮一峰</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git学习使用笔记</title>
       <link href="/posts/4bae23a1/"/>
       <url>/posts/4bae23a1/</url>

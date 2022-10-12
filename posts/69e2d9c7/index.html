@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>css-grid 网格布局 | zxyong</title><meta name="keywords" content="css,grid"><meta name="author" content="zxyong"><meta name="copyright" content="zxyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="css-grid网格布局常用属性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css-grid 网格布局">
+<meta property="og:url" content="https://zxyong.gitee.io/posts/69e2d9c7/index.html">
+<meta property="og:site_name" content="zxyong">
+<meta property="og:description" content="css-grid网格布局常用属性">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/1665564216566.webp">
+<meta property="article:published_time" content="2022-10-12T07:39:53.000Z">
+<meta property="article:modified_time" content="2022-10-12T08:54:08.373Z">
+<meta property="article:author" content="zxyong">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/zxyong/blog-image/raw/master/img/1665564216566.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zxyong.gitee.io/posts/69e2d9c7/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#00c4b6","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-10-12 16:54:08'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="baidu-site-verification" content="code-MYWxbyJPTW" /><meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/1665564216566.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zxyong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">css-grid 网格布局</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-10-12T07:39:53.000Z" title="发表于 2022-10-12 15:39:53">2022-10-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-12T08:54:08.373Z" title="更新于 2022-10-12 16:54:08">2022-10-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/css/">css</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h3 id="容器属性"><a href="#容器属性" class="headerlink" title="容器属性"></a>容器属性</h3><ul>
+<li><code>display: grid</code> - 指定一个容器使用网格布局</li>
+</ul>
+<br>
+
+<ul>
+<li><code>grid-template-columns</code> - 指定每一列的列宽</li>
+<li><code>grid-template-rows</code> - 指定每一行的行高</li>
+<li><code>grid-template</code> - 以上两个属性的简写   </li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>row-gap</code> - 设置行与行的间隔（行间距）</p>
+</li>
+<li><p><code>column-gap</code> - 设置列与列的间隔（列间距）</p>
+</li>
+<li><p><code>gap</code> - 以上两个属性的简写形式  <code>gap: &lt;row-gap&gt; &lt;column-gap&gt;</code></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>grid-template-areas</code> - 定义区域</p>
+</li>
+<li><p><code>grid-auto-flow</code> - 项目放置顺序；默认值是 <code>row</code> 表示先行后列， <code>column</code>表示先列后行</p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>justify-items</code> - 单元格内容的水平位置</p>
+</li>
+<li><p><code>align-items</code> - 单元格内容的垂直位置</p>
+</li>
+<li><p><code>place-items</code> - 以上两个属性的简写形式  <code>place-items: &lt;align-items&gt; &lt;justify-items&gt;</code></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>justify-content</code> - 整个内容区域在容器中的水平位置</p>
+</li>
+<li><p><code>align-centent</code> - 整个内容区域在容器中的垂直位置</p>
+</li>
+<li><p><code>place-centent</code> - 以上两个属性的简写形式 <code>place-content: &lt;align-content&gt; &lt;justify-content&gt;</code></p>
+</li>
+<li><p><code>grid-auto-columns</code> - 设置浏览器自动创建的多余网格的列宽</p>
+</li>
+<li><p><code>grid-auto-rows</code> - 设置浏览器自动创建的多余网格的行高</p>
+</li>
+</ul>
+<h3 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性"></a>项目属性</h3><ul>
+<li><p><code>grid-column-start</code> - 左边网格线所在的垂直网格线</p>
+</li>
+<li><p><code>grid-column-end</code> - 右边网格线所在的垂直网格线</p>
+</li>
+<li><p><code>grid-column</code> - 以上两个属性的简写形式 <code>grid-column: &lt;start-line&gt; / &lt;end-line&gt;</code></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>grid-row-start</code> - 上边网格线所在的水平网格线</p>
+</li>
+<li><p><code>grid-row-end</code> - 下边网格线所在的水平网格线</p>
+</li>
+<li><p><code>grid-row</code> - 以上两个属性的简写形式 <code>grid-row: &lt;start-line&gt; / &lt;end-line&gt;</code></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>grid-area</code> - 指定项目放在哪一个区域，</p>
+<p>也能用作简写形式 <code>grid-area: &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</code></p>
+</li>
+</ul>
+<br>
+
+<ul>
+<li><p><code>justify-self</code> - 设置单元格内容的水平位置</p>
+</li>
+<li><p><code>align-self</code> - 设置单元格内容的垂直位置</p>
+</li>
+<li><p><code>place-self</code> - 前面两个属性的简写形式  <code>place-self: &lt;align-self&gt; &lt;justify-self&gt;</code></p>
+</li>
+</ul>
+<h3 id="函数与关键字"><a href="#函数与关键字" class="headerlink" title="函数与关键字"></a>函数与关键字</h3><ul>
+<li><p><code>repeat()</code> - 用于简化重复值，该函数可以用于 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span> <span class="number">50px</span> <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>auto-fill</code> - 自动填充至每行最大可容纳的单元格</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="number">100px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>fr</code> - grid 容器中的可变长度单位，按比例分配剩余空间，在<code>grid-template-columns</code>、<code>grid-template-rows</code>及相关属性中使用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">150px</span> <span class="number">1</span>fr <span class="number">2</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><code>minmax()</code> - 定义一个长度闭区间，接受两个参数，分别为最小值和最大值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS Grid 网格布局教程 - 阮一峰</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">zxyong</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zxyong.gitee.io/posts/69e2d9c7/">https://zxyong.gitee.io/posts/69e2d9c7/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zxyong.gitee.io" target="_blank">zxyong</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/web/">前端</a><a class="post-meta__tags" href="/tags/css/">css</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zxyong/blog-image/raw/master/img/1665564216566.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/4bae23a1/"><img class="next-cover" data-lazy-src="https://gitee.com/zxyong/blog-image/raw/master/img/1664332581508.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Git学习使用笔记</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">容器属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%B1%9E%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">项目属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E4%B8%8E%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">3.</span> <span class="toc-text">函数与关键字</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/zxyong/blog-image/raw/master/img/1665564216566.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By zxyong</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI',
+      appKey: 'YJWsS81h89jbzqex54peI84M',
+      placeholder: '留言请先填写您的昵称和email',
+      avatar: 'monsterid',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      master: '2b43f05a0d1299e99a51e9b4e1a7a24b'.split(','),
+      friends: '37ab1fabf6131d27487a7ce706c2f51f'.split(','),
+      tagMeta: '博主,小伙伴,访客'.split(',')
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":10,"vOffset":-50},"mobile":{"show":false},"log":false,"tagMode":false});</script></body></html>
