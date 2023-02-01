@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>GitHub+jsDelivr+PicGo搭建免费图床</title>
+      <link href="/posts/d97654d1/"/>
+      <url>/posts/d97654d1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因为嫌麻烦且不想花钱🥱，所以选择使用 <em><strong>GitHub + jsDelivr + PicGo</strong></em> 搭建图床……</p><p>下面是步骤，很简单🎈</p><h3 id="新建-Github-仓库"><a href="#新建-Github-仓库" class="headerlink" title="新建 Github 仓库"></a>新建 Github 仓库</h3><p>打开 <a href="https://github.com/">https://github.com</a>，登录后新建仓库用于存放图片</p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302011554079.png" alt="新建github仓库" /><p>仓库创建好之后，打开 <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>，生成一个token用于PicGo操作你的仓库</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302011554081.png" alt="生成token"></p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302011554082.png" alt="生成token"></p><p>然后点击页面最底部的绿色 <span style="display: inline-block; padding: 0 16px; background: #2da44e; border-radius: 6px; color: white;">Generate token</span> 按钮，就能看到生成的token了。</p><p><strong><span style="color: red;">注意：这个token只显示一次！把这个token复制一下，等下要用。</span></strong></p><h3 id="配置-PicGo"><a href="#配置-PicGo" class="headerlink" title="配置 PicGo"></a>配置 PicGo</h3><p>PicGo下载地址: <a href="https://github.com/Molunerfinn/PicGo/releases">https://github.com/Molunerfinn/PicGo/releases</a></p><p>下载安装后打开进行配置; </p><ul><li><p>点击<code>图床设置 -&gt; Github</code></p></li><li><p>仓库名格式为 <code>github用户名/仓库名</code></p></li><li><p>分支一般选择主分支即可</p></li><li><p>粘贴刚刚生成的 token</p></li><li><p>设定自定义域名, 因为GitHub国内访问受限, 所以需要使用 jsDelivr 加速访问, </p><p>自定义域名设置为: <code>https://cdn.jsdelivr.net/gh/github用户名/仓库名</code></p></li></ul><p>我的GitHub用户名是 zxyongyo, 存放图片的仓库名是 pictures, 图片存放在仓库的 blog 文件夹下, 配置就是下面这样, 可以参考一下:</p><p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302011631119.png" alt="配置PicGo"></p><blockquote><p><a href="https://picgo.github.io/PicGo-Doc/">PicGo 官网 - <em>https://picgo.github.io/PicGo-Doc</em></a><br><a href="https://www.jsdelivr.com/">jsDelivr 官网 - <em>https://www.jsdelivr.com</em></a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 其他 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>css-grid 网格布局</title>
       <link href="/posts/69e2d9c7/"/>
       <url>/posts/69e2d9c7/</url>
