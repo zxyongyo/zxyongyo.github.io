@@ -6,7 +6,7 @@ tags:
   - Hexo
 keywords: Hexo,博客,git
 description: 使用hexo+git page搭建自己的博客网站
-cover: https://gitee.com/zxyong/blog-image/raw/master/img/20210426170934.jpg
+cover: https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/20210426170934.jpg
 aside: true
 abbrlink: acb03bb7
 date: 2021-04-20 14:47:02
@@ -77,7 +77,7 @@ $ npm install	# 安装依赖
 
    在自己的 [GitHub](https://github.com)上新建一个仓库*(没有的请自行去注册/登录)*，
 
-   ![GitHub新建仓库](https://gitee.com/zxyong/blog-image/raw/master/img/20210426170628.png "GitHub新建仓库")
+   ![GitHub新建仓库](https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/20210426170628.png "GitHub新建仓库")
 
 2. 配置hexo部署到GitHub
 
