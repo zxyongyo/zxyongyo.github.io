@@ -1,6 +1,7 @@
 ## 命令
-- hexo server  启动本地服务
-- hexo clean && hexo deploy   清除缓存文件 并部署到远程仓库
+- yarn new 文章名  新增文章
+- yarn server  启动本地服务
+- yarn clean && yarn deploy   清除缓存文件 并部署到远程仓库
 
 ## 创建分类
 - hexo new page categories
