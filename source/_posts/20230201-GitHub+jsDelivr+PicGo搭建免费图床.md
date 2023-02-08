@@ -54,5 +54,6 @@ PicGo下载地址: [https://github.com/Molunerfinn/PicGo/releases](https://githu
 ![配置PicGo](https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302011631119.png)
 
 
+> 🔗 **链接**
 > [PicGo 官网 - *https://picgo.github.io/PicGo-Doc*](https://picgo.github.io/PicGo-Doc/)
 > [jsDelivr 官网 - *https://www.jsdelivr.com*](https://www.jsdelivr.com/)
