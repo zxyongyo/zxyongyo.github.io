@@ -1,0 +1,385 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>git rebase 用法详解与工作原理(转载) | zxyong</title><meta name="keywords" content="git,rebase"><meta name="author" content="zxyong"><meta name="copyright" content="zxyong"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="git rebase 用法详解与工作原理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git rebase 用法详解与工作原理(转载)">
+<meta property="og:url" content="https://zxyong.gitee.io/posts/dfe0e190/index.html">
+<meta property="og:site_name" content="zxyong">
+<meta property="og:description" content="git rebase 用法详解与工作原理">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp">
+<meta property="article:published_time" content="2023-02-08T03:22:48.000Z">
+<meta property="article:modified_time" content="2023-02-08T06:06:18.133Z">
+<meta property="article:author" content="zxyong">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zxyong.gitee.io/posts/dfe0e190/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#00c4b6","bgDark":"#121212","position":"top-center"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-08 14:06:18'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><meta name="baidu-site-verification" content="code-MYWxbyJPTW" /><meta name="google-site-verification" content="ijDsSlahav6pu_aNpiKunWi6XYhNUUcMnq472XGz6Gk" /><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="wizard-scene"><div class="wizard-objects"><div class="wizard-square"></div><div class="wizard-circle"></div><div class="wizard-triangle"></div></div><div class="wizard"><div class="wizard-body"></div><div class="wizard-right-arm"><div class="wizard-right-hand"></div></div><div class="wizard-left-arm"><div class="wizard-left-hand"></div></div><div class="wizard-head"><div class="wizard-beard"></div><div class="wizard-face"><div class="wizard-adds"></div></div><div class="wizard-hat"><div class="wizard-hat-of-the-hat"></div><div class="wizard-four-point-star --first"></div><div class="wizard-four-point-star --second"></div><div class="wizard-four-point-star --third"></div></div></div></div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/avator.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">zxyong</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">git rebase 用法详解与工作原理(转载)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-08T03:22:48.000Z" title="发表于 2023-02-08 11:22:48">2023-02-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-08T06:06:18.133Z" title="更新于 2023-02-08 14:06:18">2023-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Git/">Git</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>以前对 <code>git rebase -i</code> 的用法一直是一知半解，一次在需要合并多个提交时刚好用到，一顿操作差点把提交都搞丢了，幸好后面顺利找回，因此记录一下学习 <code>rebase</code> 命令的过程。</p>
+<h2 id="理解-Rebase-命令"><a href="#理解-Rebase-命令" class="headerlink" title="理解 Rebase 命令"></a>理解 Rebase 命令</h2><p><code>git rebase</code> 命令的文档描述是 <code>Reapply commits on top of another base tip</code>，从字面上理解是「在另一个基端之上重新应用提交」，这个定义听起来有点抽象，换个角度可以理解为「将分支的基础从一个提交改成另一个提交，使其看起来就像是从另一个提交中创建了分支一样」，如下图：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302081158447.png" alt="git-rebase.png"></p>
+<p>假设我们从 <code>Master</code> 的提交 A 创建了 <code>Feature</code> 分支进行新的功能开发，这时 A 就是 <code>Feature</code> 的基端。接着 <code>Matser</code> 新增了两个提交 B 和 C， <code>Feature</code> 新增了两个提交 D 和 E。现在我们出于某种原因，比如新功能的开发依赖 B、C 提交，需要将 <code>Master</code> 的两个新提交整合到 <code>Feature</code> 分支，为了保持提交历史的整洁，我们可以切换到 <code>Feature</code> 分支执行 <code>rebase</code> 操作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase master</span><br></pre></td></tr></table></figure>
+
+<p><code>rebase</code> 的执行过程是首先找到这两个分支（即当前分支 <code>Feature</code>、 <code>rebase</code> 操作的目标基底分支 <code>Master</code>） 的最近共同祖先提交 A，然后对比当前分支相对于该祖先提交的历次提交（D 和 E），提取相应的修改并存为临时文件，然后将当前分支指向目标基底 <code>Master</code> 所指向的提交 C, 最后以此作为新的基端将之前另存为临时文件的修改依序应用。</p>
+<p>我们也可以按上文理解成将 <code>Feature</code> 分支的基础从提交 A 改成了提交 C，看起来就像是从提交 C 创建了该分支，并提交了 D 和 E。但实际上这只是「看起来」，在内部 Git 复制了提交 D 和 E 的内容，创建新的提交 D’ 和 E’ 并将其应用到特定基础上（A→B→C）。尽管新的 <code>Feature</code> 分支和之前看起来是一样的，但它是由全新的提交组成的。</p>
+<p><code>rebase</code> 操作的实质是丢弃一些现有的提交，然后相应地新建一些内容一样但实际上不同的提交。</p>
+<h2 id="主要用途"><a href="#主要用途" class="headerlink" title="主要用途"></a>主要用途</h2><p><code>rebase</code> 通常用于重写提交历史。下面的使用场景在大多数 Git 工作流中是十分常见的：</p>
+<ul>
+<li>我们从 <code>master</code> 分支拉取了一条 <code>feature</code> 分支在本地进行功能开发</li>
+<li>远程的 <code>master</code> 分支在之后又合并了一些新的提交</li>
+<li>我们想在 <code>feature</code> 分支集成 <code>master</code> 的最新更改</li>
+</ul>
+<h3 id="rebase-和-merge-的区别"><a href="#rebase-和-merge-的区别" class="headerlink" title="rebase 和 merge 的区别"></a>rebase 和 merge 的区别</h3><p>以上场景同样可以使用 <code>merge</code> 来达成目的，但使用 <code>rebase</code> 可以使我们保持一个线性且更加整洁的提交历史。假设我们有如下分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  D---E feature</span><br><span class="line"> /</span><br><span class="line">A---B---C master</span><br></pre></td></tr></table></figure>
+
+<p>现在我们将分别使用 <code>merge</code> 和 <code>rebase</code>，把 <code>master</code> 分支的 B、C 提交集成到 <code>feature</code> 分支，并在 <code>feature</code> 分支新增一个提交 F，然后再将 <code>feature</code> 分支合入 <code>master</code> ，最后对比两种方法所形成的提交历史的区别。</p>
+<ul>
+<li><p>使用 <code>merge</code></p>
+<ol>
+<li>切换到 <code>feature</code> 分支： <code>git checkout feature</code>。</li>
+<li>合并 <code>master</code> 分支的更新： <code>git merge master</code>。</li>
+<li>新增一个提交 F： <code>git add . &amp;&amp; git commit -m &quot;commit F&quot;</code> 。</li>
+<li>切回 <code>master</code> 分支并执行快进合并： <code>git chekcout master &amp;&amp; git merge feature</code>。</li>
+</ol>
+<p>执行过程如下图所示：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302081159353.gif" alt="Dec-30-2020-merge-example"></p>
+<p>我们将得到如下提交历史：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 6fa5484 (HEAD -&gt; master, feature) commit F</span><br><span class="line">*   875906b Merge branch <span class="string">&#x27;master&#x27;</span> into feature</span><br><span class="line">|\  </span><br><span class="line">| | 5b05585 commit E</span><br><span class="line">| | f5b0fc0 commit D</span><br><span class="line">* * d017dff commit C</span><br><span class="line">* * 9df916f commit B</span><br><span class="line">|/  </span><br><span class="line">* cb932a6 commit A</span><br></pre></td></tr></table></figure></li>
+<li><p>使用 <code>rebase</code></p>
+<p>步骤与使用 <code>merge</code> 基本相同，唯一的区别是第 2 步的命令替换成： <code>git rebase master</code>。</p>
+<p>执行过程如下图所示：</p>
+<p><img src= "/img/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302081159624.gif" alt="Dec-30-2020-rebase-example"></p>
+<p>我们将得到如下提交历史：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* 74199ce (HEAD -&gt; master, feature) commit F</span><br><span class="line">* e7c7111 commit E</span><br><span class="line">* d9623b0 commit D</span><br><span class="line">* 73deeed commit C</span><br><span class="line">* c50221f commit B</span><br><span class="line">* ef13725 commit A</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>可以看到，使用 <code>rebase</code> 方法形成的提交历史是完全线性的，同时相比 <code>merge</code> 方法少了一次 <code>merge</code> 提交，看上去更加整洁。</p>
+<h3 id="为什么要保持提交历史的整洁"><a href="#为什么要保持提交历史的整洁" class="headerlink" title="为什么要保持提交历史的整洁"></a>为什么要保持提交历史的整洁</h3><p>一个看上更整洁的提交历史有什么好处？</p>
+<ol>
+<li>满足某些开发者的洁癖。</li>
+<li>当你因为某些 bug 需要回溯提交历史时，更容易定位到 bug 是从哪一个提交引入。尤其是当你需要通过 <code>git bisect</code> 从几十上百个提交中排查 bug，或者有一些体量较大的功能分支需要频繁的从远程的主分支拉取更新时。</li>
+</ol>
+<p>使用 <code>rebase</code> 来将远程的变更整合到本地仓库是一种更好的选择。用 <code>merge</code> 拉取远程变更的结果是，每次你想获取项目的最新进展时，都会有一个多余的 <code>merge</code> 提交。而使用 <code>rebase</code> 的结果更符合我们的本意：我想在其他人的已完成工作的基础上进行我的更改。</p>
+<h3 id="其他重写提交历史的方法"><a href="#其他重写提交历史的方法" class="headerlink" title="其他重写提交历史的方法"></a>其他重写提交历史的方法</h3><p>当我们仅仅只想修改最近的一次提交时，使用 <code>git commit --amend</code> 会更加方便。</p>
+<p>它适用于以下场景：</p>
+<ul>
+<li>我们刚刚完成了一次提交，但还没有推送到公共的分支。</li>
+<li>突然发现上个提交还留了些小尾巴没有完成，比如一行忘记删除的注释或者一个很小的笔误，我们可以很快速的完成修改，但又不想再新增一个单独的提交。</li>
+<li>或者我们只是觉得上一次提交的提交信息写的不够好，想做一些修改。</li>
+</ul>
+<p>这时候我们可以添加新增的修改（或跳过），使用 <code>git commit --amend</code> 命令执行提交，执行后会进入一个新的编辑器窗口，可以对上一次提交的提交信息进行修改，保存后就会将所做的这些更改应用到上一次提交。</p>
+<p>如果我们已经将上一次提交推送到了远程的分支，现在再执行推送将会提示出错并被拒绝，在确保该分支不是一个公共分支的前提下，我们可以使用 <code>git push --force</code> 强制推送。</p>
+<p>注意与 <code>rebase</code> 一样，Git 在内部并不会真正地修改并替换上一个提交，而是创建了一个全新的提交并重新指向这个新的提交。</p>
+<h2 id="使用-rebase-的交互模式重写提交历史"><a href="#使用-rebase-的交互模式重写提交历史" class="headerlink" title="使用 rebase 的交互模式重写提交历史"></a>使用 rebase 的交互模式重写提交历史</h2><p><code>git rebase</code> 命令有标准和交互两种模式，之前的示例我们用的都是默认的标准模式，在命令后添加 <code>-i</code> 或 <code>--interactive</code> 选项即可使用交互模式。</p>
+<h3 id="两种模式的区别"><a href="#两种模式的区别" class="headerlink" title="两种模式的区别"></a>两种模式的区别</h3><p>我们前面提到， <code>rebase</code> 是「在另一个基端之上重新应用提交」，而在重新应用的过程中，这些提交会被重新创建，自然也可以进行修改。在 <code>rebase</code> 的标准模式下，当前工作分支的提交会被直接应用到传入分支的顶端；而在交互模式下，则允许我们在重新应用之前通过编辑器以及特定的命令规则对这些提交进行合并、重新排序及删除等重写操作。</p>
+<p>两者最常见的使用场景也因此有所不同：</p>
+<ol>
+<li>标准模式常用于在当前分支中集成来自其他分支的最新修改。</li>
+<li>交互模式常用于对当前分支的提交历史进行编辑，如将多个小提交合并成大的提交。</li>
+</ol>
+<h3 id="不仅仅是分支"><a href="#不仅仅是分支" class="headerlink" title="不仅仅是分支"></a>不仅仅是分支</h3><p>虽然我们之前的示例都是在不同的两个分支之间执行 rebase 操作，但事实上 rebase 命令传入的参数并不仅限于分支。</p>
+<p>任何的提交引用，都可以被视作有效的 <code>rebase</code> 基底对象，包括一个提交 ID、分支名称、标签名称或 <code>HEAD~1</code> 这样的相对引用。</p>
+<p>自然地，假如我们对当前分支的某次历史提交执行 <code>rebase</code>，其结果就是会将这次提交之后的所有提交重新应用在当前分支，在交互模式下，即允许我们对这些提交进行更改。</p>
+<h3 id="重写提交历史"><a href="#重写提交历史" class="headerlink" title="重写提交历史"></a>重写提交历史</h3><p>终于进入到本文的主题，前面提到，假如我们在交互模式对当前分支的某次提交执行 <code>rebase</code>，即（间接）实现了对这次提交之后的所有提交进行重写。接下来我们将通过下面的示例进行详细介绍。</p>
+<p>假设我们在 <code>feature</code> 分支有如下提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">74199cebdd34d107bb67b6da5533a2e405f4c330 (HEAD -&gt; feature) commit F</span><br><span class="line">e7c7111d807c1d5209b97a9c75b09da5cd2810d4 commit E</span><br><span class="line">d9623b0ef9d722b4a83d58a334e1ce85545ea524 commit D</span><br><span class="line">73deeedaa944ef459b17d42601677c2fcc4c4703 commit C</span><br><span class="line">c50221f93a39f3474ac59228d69732402556c93b commit B</span><br><span class="line">ef1372522cdad136ce7e6dc3e02aab4d6ad73f79 commit A</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们将要执行的操作是：</p>
+<ul>
+<li>将 B、C 合并为一个新的提交 ，并仅保留原提交 C 的提交信息</li>
+<li>删除提交 D</li>
+<li>将提交 E 移动到提交 F 之后并重新命名（即修改提交信息）为提交 H</li>
+<li>在提交 F 中加入一个新的文件更改，并重新命名为提交 G</li>
+</ul>
+<p>由于我们需要修改的提交是 B→C→D→E，因此我们需要将提交 A 作为新的「基端」，提交 A 之后的所有提交会被重新应用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i ef1372522cdad136ce7e6dc3e02aab4d6ad73f79 <span class="comment"># 参数是提交 A 的 ID</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来会进入到如下的编辑器界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">pick c50221f commit B</span><br><span class="line">pick 73deeed commit C</span><br><span class="line">pick d9623b0 commit D</span><br><span class="line">pick e7c7111 commit E</span><br><span class="line">pick 74199ce commit F</span><br><span class="line"></span><br><span class="line"><span class="comment"># 变基 ef13725..74199ce 到 ef13725（5 个提交）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 命令:</span></span><br><span class="line"><span class="comment"># p, pick &lt;提交&gt; = 使用提交</span></span><br><span class="line"><span class="comment"># r, reword &lt;提交&gt; = 使用提交，但修改提交说明</span></span><br><span class="line"><span class="comment"># e, edit &lt;提交&gt; = 使用提交，进入 shell 以便进行提交修补</span></span><br><span class="line"><span class="comment"># s, squash &lt;提交&gt; = 使用提交，但融合到前一个提交</span></span><br><span class="line"><span class="comment"># f, fixup &lt;提交&gt; = 类似于 &quot;squash&quot;，但丢弃提交说明日志</span></span><br><span class="line"><span class="comment"># x, exec &lt;命令&gt; = 使用 shell 运行命令（此行剩余部分）</span></span><br><span class="line"><span class="comment"># b, break = 在此处停止（使用 &#x27;git rebase --continue&#x27; 继续变基）</span></span><br><span class="line"><span class="comment"># d, drop &lt;提交&gt; = 删除提交</span></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>（注意上面提交 ID 之后的提交信息只起到描述作用，在这里修改它们不会有任何效果。）</p>
+<p>具体的操作命令在编辑器的注释中已解释的相当详细，所以我们直接进行如下操作：</p>
+<ol>
+<li><p>对提交 B、C 作如下修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pick c50221f commit B</span><br><span class="line">f 73deeed commit C</span><br></pre></td></tr></table></figure>
+
+<p>由于提交 B 是这些提交中的第一个，因此我们无法对其执行 <code>squash</code> 或者 <code>fixup</code> 命令（没有前一个提交了），我们也不需要对提交 B 执行 <code>reword</code> 命令以修改其提交信息，因为之后在将提交 C 融合到提交 B 中时，会允许我们对融合之后的提交信息进行修改。</p>
+<p>注意该界面提交的展示顺序是从上到下由旧到新，因此我们将提交 C 的命令改为 <code>s（或 squash）</code> 或者 <code>f（或 fixup）</code> 会将其融合到（上方的）前一个提交 B，两个命令的区别为是否保留 C 的提交信息。</p>
+</li>
+<li><p>删除提交 D：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d d9623b0 commit D</span><br></pre></td></tr></table></figure></li>
+<li><p>移动提交 E 到提交 F 之后并修改其提交信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pick 74199ce commit F</span><br><span class="line">r e7c7111 commit E</span><br></pre></td></tr></table></figure></li>
+<li><p>在提交 F 中加入一个新的文件更改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e 74199ce commit F</span><br></pre></td></tr></table></figure></li>
+<li><p>保存退出。</p>
+</li>
+</ol>
+<p>接下来会按照从上到下的顺序依次执行我们对每一个提交所修改或保留的命令：</p>
+<ol>
+<li><p>对提交 B 的 <code>pick</code> 命令会自动执行，因此不需要交互。</p>
+</li>
+<li><p>接着执行对提交 C 的 <code>squash</code> 命令，会进入一个新的编辑器界面允许我们修改合并了B、C 之后的提交信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是一个 2 个提交的组合。</span></span><br><span class="line"><span class="comment"># 这是第一个提交说明：</span></span><br><span class="line"></span><br><span class="line">commit B</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这是提交说明 #2：</span></span><br><span class="line"></span><br><span class="line">commit C</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>我们将 <code>commit B</code> 这一行删除后保存退出，融合之后的提交将使用 <code>commit C</code> 作为提交信息。</p>
+</li>
+<li><p>对提交 D 的 <code>drop</code> 操作也会自动执行，没有交互步骤。</p>
+</li>
+<li><p>执行 <code>rebase</code> 的过程中可能会发生冲突，这时候 <code>rebase</code> 会暂时中止，需要我们编辑冲突的文件去手动合并冲突。解决冲突后通过 <code>git add/rm &lt;conflicted_files&gt;</code> 将其标记为已解决，然后执行 <code>git rebase --continue</code> 可以继续之后的 <code>rebase</code> 步骤；或者也可以执行 <code>git rebase --abort</code> 放弃 <code>rebase</code> 操作并恢复到操作之前的状态。</p>
+</li>
+<li><p>由于我们上移了提交 F 的位置，因此接下来将执行对 F 的 <code>edit</code> 操作。这时将进入一个新的 Shell 会话：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">停止在 74199ce... commit F</span><br><span class="line">您现在可以修补这个提交，使用</span><br><span class="line"></span><br><span class="line">  git commit --amend </span><br><span class="line"></span><br><span class="line">当您对变更感到满意，执行</span><br><span class="line"></span><br><span class="line">  git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
+
+<p>我们添加一个新的代码文件并执行 <code>git commit --amend</code> 将其合并到当前的上一个提交（即 F），然后在编辑器界面中将其提交信息修改为 <code>commit G</code>，最后执行 <code>git rebase --continue</code> 继续 <code>rebase</code> 操作。</p>
+</li>
+<li><p>最后执行对提交 E 的 <code>reword</code> 操作，在编辑器界面中将其提交信息修改为 <code>commit H</code> 。</p>
+</li>
+</ol>
+<p>大功告成！最后让我们确认一下 <code>rebase</code> 之后的提交历史：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">64710dc88ef4fbe8fe7aac206ec2e3ef12e7bca9 (HEAD -&gt; feature) commit H</span><br><span class="line">8ab4506a672dac5c1a55db34779a185f045d7dd3 commit G</span><br><span class="line">1e186f890710291aab5b508a4999134044f6f846 commit C</span><br><span class="line">ef1372522cdad136ce7e6dc3e02aab4d6ad73f79 commit A</span><br></pre></td></tr></table></figure>
+
+<p>完全符合预期，同时也可以看到提交 A之后的所有提交 ID 都已经发生了改变，这也印证了我们之前所说的 Git 重新创建了这些提交。</p>
+<h2 id="Rebase-的进阶用法"><a href="#Rebase-的进阶用法" class="headerlink" title="Rebase 的进阶用法"></a>Rebase 的进阶用法</h2><h3 id="合并之前执行-rebase"><a href="#合并之前执行-rebase" class="headerlink" title="合并之前执行 rebase"></a>合并之前执行 rebase</h3><p>另一种使用 <code>rebase</code> 的常见场景是在推送到远程进行合并之前执行 <code>rebase</code>，一般这样做的目的是为了确保提交历史的整洁。</p>
+<p>我们首先在自己的功能分支里进行开发，当开发完成时需要先将当前功能分支 <code>rebase</code> 到最新的主分支上，提前解决可能出现的冲突，然后再向远程提交修改。 这样的话，远程仓库的主分支维护者就不再需要进行整合且创建一条额外的 <code>merge</code> 提交，只需要执行快进合并即可。即使是在多个分支并行开发的情况，最终也能得到一条完全线性的提交历史。</p>
+<h3 id="rebase-到其他分支"><a href="#rebase-到其他分支" class="headerlink" title="rebase 到其他分支"></a>rebase 到其他分支</h3><p>我们可以通过 <code>rebase</code> 对两个分支进行对比，取出相应的修改，然后应用到另一个分支上。例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    F---G patch</span><br><span class="line">   /</span><br><span class="line">  D---E feature</span><br><span class="line"> /</span><br><span class="line">A---B---C master</span><br></pre></td></tr></table></figure>
+
+<p>假设我们基于 <code>feature</code> 分支的提交 D 创建了分支 <code>patch</code>，并且新增了提交 F、G，现在我们想将 <code>patch</code> 所做的更改合并到 <code>master</code> 并发布，但暂时还不想合并 <code>feature</code> ，这种情况下可以使用 <code>rebase</code> 的 <code>--onto &lt;branch&gt;</code> 选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase —onto master feature patch</span><br></pre></td></tr></table></figure>
+
+<p>以上操作将取出 <code>patch</code> 分支，对比它基于 <code>feature</code> 所做的更改， 然后把这些更改在 <code>master</code> 分支上重新应用，让 <code>patch</code> 看起来就像直接基于 <code>master</code> 进行更改一样。执行后的 <code>patch</code> 如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A---B---C---F<span class="string">&#x27;---G&#x27;</span> patch</span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以切换到 <code>master</code> 分支，并对 <code>patch</code> 执行快进合并：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge patch</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过-rebase-策略执行-git-pull"><a href="#通过-rebase-策略执行-git-pull" class="headerlink" title="通过 rebase 策略执行 git pull"></a>通过 rebase 策略执行 <code>git pull</code></h3><p>Git 在最近的某个版本起，直接运行 <code>git pull</code> 会有如下提示消息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">warning: 不建议在没有为偏离分支指定合并策略时执行 pull 操作。 您可以在执行下一次 pull 操作之前执行下面一条命令来抑制本消息：</span><br><span class="line"></span><br><span class="line">  git config pull.rebase <span class="literal">false</span>  <span class="comment"># 合并（缺省策略）</span></span><br><span class="line">  git config pull.rebase <span class="literal">true</span>   <span class="comment"># 变基</span></span><br><span class="line">  git config pull.ff only       <span class="comment"># 仅快进</span></span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p>原来 <code>git pull</code> 时也可以通过 <code>rebase</code> 来进行合并，这是因为 <code>git pull</code> 实际上等于 <code>git fetch</code> + <code>git merge</code> ，我们可以在第二步直接用 <code>git rebase</code> 替换 <code>git merge</code>来合并 <code>fetch</code> 取得的变更，作用同样是避免额外的 <code>merge</code> 提交以保持线性的提交历史。</p>
+<p>两者的区别在上文中已进行过对比，我们可以把对比示例中的 <code>Matser</code> 分支当成远程分支，把 <code>Feature</code> 分支当成本地分支，当我们在本地执行 <code>git pull</code> 时，其实就是拉取 <code>Master</code> 的更改然后合并到 <code>Feature</code> 分支。如果两个分支都有不同的提交，默认的 <code>git merge</code> 方式会生成一个单独的 merge 提交以整合这些提交；而使用 <code>git rebase</code> 则相当于基于远程分支的最新提交重新创建本地分支，然后再重新应用本地所添加的提交。</p>
+<p>具体的使用方式有多种：</p>
+<ul>
+<li>每次执行 pull 命令时添加特定选项： <code>git pull --rebase</code> 。</li>
+<li>为当前仓库设定配置项： <code>git config pull.rebase true</code>，在 <code>git config</code> 后添加 <code>--global</code> 选项可以使该配置项对所有仓库生效。</li>
+</ul>
+<h2 id="潜在弊端和反对意见"><a href="#潜在弊端和反对意见" class="headerlink" title="潜在弊端和反对意见"></a>潜在弊端和反对意见</h2><p>从以上场景来看 <code>rebase</code> 功能非常强大，但我们也需要意识到它不是万能的，甚至对新手来说有些危险，稍有不慎就会发现 <code>git log</code> 里的提交不见了，或者卡在 <code>rebase</code> 的某个步骤不知道如何恢复。</p>
+<p>我们上面已经提到了 <code>rebase</code> 有保持整洁的线性提交历史的优点，但也需要意识到它有以下潜在的弊端：</p>
+<ul>
+<li>如果涉及到已经推送过的提交，需要强制推送才能将本地 <code>rebase</code> 后的提交推送到远程。因此绝对不要在一个公共分支（也就是说还有其他人基于这个分支进行开发）执行 <code>rebase</code>，否则其他人之后执行 <code>git pull</code> 会合并出一条令人困惑的本地提交历史，进一步推送回远程分支后又会将远程的提交历史打乱（详见 <a target="_blank" rel="noopener" href="https://www.daolf.com/posts/git-series-part-2/">Rebase and the golden rule explained</a>），较严重的情况下可能会对你的人身安全带来风险。</li>
+<li>对新手不友好，新手很有可能在交互模式中误操作「丢失」某些提交（但其实是能够找回的）。</li>
+<li>假如你频繁的使用 <code>rebase</code> 来集成主分支的更新，一个潜在的后果是你会遇到越来越多需要合并的冲突。尽管你可以在 <code>rebase</code> 过程中处理这些冲突，但这并非长久之计，更推荐的做法是频繁的合入主分支然后创建新的功能分支，而不是使用一个长时间存在的功能分支。</li>
+</ul>
+<p>另外有一些观点是我们应该尽量避免重写提交历史：</p>
+<blockquote>
+<p>有一种观点认为，仓库的提交历史即是 记录实际发生过什么。 它是针对历史的文档，本身就有价值，不能乱改。 从这个角度看来，改变提交历史是一种亵渎，你使用 谎言 掩盖了实际发生过的事情。 如果由合并产生的提交历史是一团糟怎么办？ 既然事实就是如此，那么这些痕迹就应该被保留下来，让后人能够查阅。</p>
+</blockquote>
+<p>以及频繁的使用 <code>rebase</code> 可能会使从历史提交中定位 bug 变得更加困难，详见 <a target="_blank" rel="noopener" href="https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1">Why you should stop using Git rebase</a>。</p>
+<h2 id="找回丢失的提交"><a href="#找回丢失的提交" class="headerlink" title="找回丢失的提交"></a>找回丢失的提交</h2><p>在交互式模式下进行 <code>rebase</code> 并对提交执行 <code>squash</code> 或 <code>drop</code> 等命令后，会从分支的 <code>git log</code> 中直接删除提交。如果你不小心操作失误，会以为这些提交已经永久消失了而吓出一身冷汗。</p>
+<p>但这些提交并没有真正地被删除，如上所说，Git 并不会修改（或删除）原来的提交，而是重新创建了一批新的提交，并将当前分支顶端指向了新提交。因此我们可以使用 <code>git reflog</code> 找到并且重新指向原来的提交来恢复它们，这会撤销整个 <code>rebase</code>。感谢 Git ，即使你执行 <code>rebase</code> 或者 <code>commit --amend</code> 等重写提交历史的操作，它也不会真正地丢失任何提交。</p>
+<h3 id="git-reflog-命令"><a href="#git-reflog-命令" class="headerlink" title="git reflog 命令"></a><code>git reflog</code> 命令</h3><p>reflogs 是 Git 用来记录本地仓库分支顶端的更新的一种机制，它会记录所有分支顶端曾经指向过的提交，因此 reflogs 允许我们找到并切换到一个当前没有被任何分支或标签引用的提交。</p>
+<p>每当分支顶端由于任何原因被更新（通过切换分支、拉取新的变更、重写历史或者添加新的提交），一条新的记录将被添加到 reflogs 中。如此一来，我们在本地所创建过的每一次提交都一定会被记录在 reflogs 中。即使在重写了提交历史之后， reflogs 也会包含关于分支的旧状态的信息，并允许我们在需要时恢复到该状态。</p>
+<p>注意 reflogs 并不会永久保存，它有 90 天的过期时间。</p>
+<h3 id="还原提交历史"><a href="#还原提交历史" class="headerlink" title="还原提交历史"></a>还原提交历史</h3><p>我们从上一个例子继续，假设我们想恢复 <code>feature</code> 分支在 <code>rebase</code> 之前的 A→B→C→D→E→F 提交历史，但这时候的 <code>git log</code> 中已经没有后面 5 个提交，所以需要从 reflogs 中寻找，运行 <code>git reflog</code> 结果如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">64710dc (HEAD -&gt; feature) HEAD@&#123;0&#125;: rebase (<span class="built_in">continue</span>) (finish): returning to refs/heads/feature</span><br><span class="line">64710dc (HEAD -&gt; feature) HEAD@&#123;1&#125;: rebase (<span class="built_in">continue</span>): commit H</span><br><span class="line">8ab4506 HEAD@&#123;2&#125;: rebase (<span class="built_in">continue</span>): commit G</span><br><span class="line">1e186f8 HEAD@&#123;3&#125;: rebase (squash): commit C</span><br><span class="line">c50221f HEAD@&#123;4&#125;: rebase (start): checkout ef1372522cdad136ce7e6dc3e02aab4d6ad73f79</span><br><span class="line">74199ce HEAD@&#123;5&#125;: checkout: moving from master to feature</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<p><code>reflogs</code> 完整的记录了我们切换分支并进行 <code>rebase</code> 的全过程，继续向下检索，我们找到了从 <code>git log</code> 中消失的提交 F:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">74199ce HEAD@&#123;15&#125;: commit: commit F</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们通过 <code>git reset</code> 将 <code>feature</code> 分支的顶端重新指向原来的提交 F：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 我们想将工作区中的文件也一并还原，因此使用了--hard选项   </span></span><br><span class="line">$ git reset --hard 74199ce                                      </span><br><span class="line">HEAD 现在位于 74199ce commit F</span><br></pre></td></tr></table></figure>
+
+<p>再运行 <code>git log</code> 会发现一切又回到了从前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">74199cebdd34d107bb67b6da5533a2e405f4c330 (HEAD -&gt; feature) commit F</span><br><span class="line">e7c7111d807c1d5209b97a9c75b09da5cd2810d4 commit E</span><br><span class="line">d9623b0ef9d722b4a83d58a334e1ce85545ea524 commit D</span><br><span class="line">73deeedaa944ef459b17d42601677c2fcc4c4703 commit C</span><br><span class="line">c50221f93a39f3474ac59228d69732402556c93b commit B</span><br><span class="line">ef1372522cdad136ce7e6dc3e02aab4d6ad73f79 commit A</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><strong>参考链接</strong><br><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase"><em>git rebase - Atlassian Git Tutorial</em></a><br><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/rewriting-history"><em>git amend - Atlassian Git Tutorial</em></a><br><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/syncing/git-pull"><em>Git Pull - Atlassian Git Tutorial</em></a><br><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/Git-%E5%88%86%E6%94%AF-%E5%8F%98%E5%9F%BA"><em>Git - 变基</em></a><br><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-rebase"><em>Git - git-rebase Documentation</em></a><br><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-reflog"><em>Git - git-reflog Documentation</em></a><br><a target="_blank" rel="noopener" href="https://medium.com/@fredrikmorken/why-you-should-stop-using-git-rebase-5552bee4fed1"><em>Why you should stop using Git rebase</em></a><br><a target="_blank" rel="noopener" href="https://medium.com/@fabisiakradoslaw/understand-how-does-git-rebase-work-and-compare-with-git-merge-and-git-interactive-rebase-cce2c9775e43"><em>Understand how does git rebase work and compare with git merge and git interactive rebase</em></a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://waynerv.com">Waynerv</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://waynerv.com/posts/git-rebase-intro/">https://waynerv.com/posts/git-rebase-intro/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">转载于 Waynerv</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/posts/d97654d1/"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/home_cover_1670914123147_9aaccc.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">GitHub+jsDelivr+PicGo搭建免费图床</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3-Rebase-%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">理解 Rebase 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%94%A8%E9%80%94"><span class="toc-number">2.</span> <span class="toc-text">主要用途</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase-%E5%92%8C-merge-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.1.</span> <span class="toc-text">rebase 和 merge 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BF%9D%E6%8C%81%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2%E7%9A%84%E6%95%B4%E6%B4%81"><span class="toc-number">2.2.</span> <span class="toc-text">为什么要保持提交历史的整洁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%87%8D%E5%86%99%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">其他重写提交历史的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-rebase-%E7%9A%84%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%BC%8F%E9%87%8D%E5%86%99%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-number">3.</span> <span class="toc-text">使用 rebase 的交互模式重写提交历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">3.1.</span> <span class="toc-text">两种模式的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E4%BB%85%E4%BB%85%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-number">3.2.</span> <span class="toc-text">不仅仅是分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%86%99%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-number">3.3.</span> <span class="toc-text">重写提交历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rebase-%E7%9A%84%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">Rebase 的进阶用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E4%B9%8B%E5%89%8D%E6%89%A7%E8%A1%8C-rebase"><span class="toc-number">4.1.</span> <span class="toc-text">合并之前执行 rebase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase-%E5%88%B0%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="toc-number">4.2.</span> <span class="toc-text">rebase 到其他分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-rebase-%E7%AD%96%E7%95%A5%E6%89%A7%E8%A1%8C-git-pull"><span class="toc-number">4.3.</span> <span class="toc-text">通过 rebase 策略执行 git pull</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BD%9C%E5%9C%A8%E5%BC%8A%E7%AB%AF%E5%92%8C%E5%8F%8D%E5%AF%B9%E6%84%8F%E8%A7%81"><span class="toc-number">5.</span> <span class="toc-text">潜在弊端和反对意见</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%BE%E5%9B%9E%E4%B8%A2%E5%A4%B1%E7%9A%84%E6%8F%90%E4%BA%A4"><span class="toc-number">6.</span> <span class="toc-text">找回丢失的提交</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reflog-%E5%91%BD%E4%BB%A4"><span class="toc-number">6.1.</span> <span class="toc-text">git reflog 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%98%E5%8E%9F%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="toc-number">6.2.</span> <span class="toc-text">还原提交历史</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp')"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2023 By zxyong</div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'KPVLgMgYWD0PwYqsMzQRs5hI-MdYXbMMI',
+      appKey: 'YJWsS81h89jbzqex54peI84M',
+      placeholder: '留言请先填写您的昵称和email',
+      avatar: 'monsterid',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+      master: '2b43f05a0d1299e99a51e9b4e1a7a24b'.split(','),
+      friends: '37ab1fabf6131d27487a7ce706c2f51f'.split(','),
+      tagMeta: '博主,小伙伴,访客'.split(',')
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/gh/HCLonely/Valine@latest/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":10,"vOffset":-50},"mobile":{"show":false},"log":false,"tagMode":false});</script></body></html>
