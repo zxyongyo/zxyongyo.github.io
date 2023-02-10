@@ -11,7 +11,7 @@ copyright_url: 'https://waynerv.com/posts/git-rebase-intro/'
 copyright_info: 转载于 Waynerv
 abbrlink: dfe0e190
 date: 2023-02-08 11:22:48
-cover: 'https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/1664332581508.webp'
+cover: 'https://cdn.jsdelivr.net/gh/zxyongyo/pictures/blog/202302101343488.webp'
 ---
 
 以前对 `git rebase -i` 的用法一直是一知半解，一次在需要合并多个提交时刚好用到，一顿操作差点把提交都搞丢了，幸好后面顺利找回，因此记录一下学习 `rebase` 命令的过程。
