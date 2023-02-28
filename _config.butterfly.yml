@@ -619,7 +619,7 @@ display_mode: light
 beautify:
   enable: true
   field: post # site/post
-  title-prefix-icon: '\f0eb' # '\f0c1'
+  title-prefix-icon: '\f0f3' # '\f0c1' f0c6
   title-prefix-icon-color: '#f1c40f' # '#F47466'
 
 # Global font settings
