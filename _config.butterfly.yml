@@ -8,8 +8,8 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   其他 || fas fa-list:
-    必应美图: /bing-daily-wallpaper/ || fas fa-image
-    Border-radius Previewer: /border-radius-previewer/ || fas fa-fill
+    必应美图: https://zxyongyo.github.io/bing-daily-wallpaper/ || fas fa-image
+    Border-radius Previewer: https://zxyongyo.github.io/border-radius-previewer/ || fas fa-fill
   # Link: /link/ || fas fa-link
   # About: /about/ || fas fa-heart
 

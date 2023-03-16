@@ -4,7 +4,9 @@ if theme.menu
       if typeof value !== 'object'
         .menus_item
           - const valueArray = value.split('||')
-          a.site-page(href=url_for(trim(valueArray[0])))
+          - const url = url_for(trim(valueArray[0]))
+          - const target = url.startsWith('/') ? '_self' : '_blank'
+          a.site-page(href=url target=target)
             if valueArray[1]
               i.fa-fw(class=trim(valueArray[1]))
             span=' '+label
@@ -20,8 +22,10 @@ if theme.menu
           ul.menus_item_child
             each val,lab in value 
               - const valArray = val.split('||')
+              - const url = url_for(trim(valArray[0]))
+              - const target = url.startsWith('/') ? '_self' : '_blank'
               li
-                a.site-page.child(href=url_for(trim(valArray[0])))
+                a.site-page.child(href=url target=target)
                   if valArray[1]
                     i.fa-fw(class=trim(valArray[1]))
                   span=' '+ lab
