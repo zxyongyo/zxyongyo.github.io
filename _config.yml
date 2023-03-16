@@ -113,7 +113,7 @@ theme: butterfly
 deploy:
   type: git
   repo: 
-    github: git@github.com:ZxyongYo/zxyongyo.github.io.git,gh-pages
+    github: git@github.com:zxyongyo/zxyongyo.github.io.git,gh-pages
     gitee: git@gitee.com:zxyong/zxyong.git,gh-pages
 
 # 搜索

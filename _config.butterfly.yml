@@ -7,9 +7,9 @@ menu:
   分类: /categories/ || fas fa-folder-open
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
-  # List||fas fa-list:
-  #   Music: /music/ || fas fa-music
-  #   Movie: /movies/ || fas fa-video
+  其他 || fas fa-list:
+    必应美图: /bing-daily-wallpaper/ || fas fa-image
+    Border-radius Previewer: /border-radius-previewer/ || fas fa-fill
   # Link: /link/ || fas fa-link
   # About: /about/ || fas fa-heart
 
